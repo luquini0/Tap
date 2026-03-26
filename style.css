@@ -1,0 +1,169 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html, body{
+width:100%;
+height:100%;
+overflow:hidden;
+}
+
+body{
+margin:0;
+background:rgb(255, 255, 255);
+font-family:sans-serif;
+color:rgb(0, 0, 0);
+position:fixed;
+top:0;
+left:0;
+right:0;
+bottom:0;
+}
+
+p{
+margin-top:20px;
+line-height:1.5;
+
+color:rgba(0,0,0,0.8);
+}
+
+
+.product-section{
+width:100vw;
+height:100dvh; /* 🔥 mejor que 100vh en mobile */
+
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.product-container{
+
+width:100%;
+max-width:1200px;
+
+display:grid;
+grid-template-columns:1fr 1fr;
+
+align-items:center;
+
+gap:0px;
+
+}
+
+.product-info h1{
+
+font-size:64px;
+margin-bottom:0px;
+
+}
+
+.product-info p{
+
+font-size:18px;
+color:#000000;
+
+}
+
+
+/* viewer */
+
+.product-viewer{
+
+width:100%;
+height:500px;
+
+padding:0px;
+
+position:relative;
+
+box-sizing:border-box;
+
+}
+
+#webgl{
+width:100%;
+height:100%;
+display:block;
+background:transparent;
+}
+
+
+/* GLOW INTENSO Y MÁS GRANDE */
+
+.product-viewer::after{
+
+content:"";
+
+position:absolute;
+
+width:700px;
+height:700px;
+
+background:radial-gradient(
+circle,
+rgba(255,255,255,0.45) 0%,
+rgba(255,255,255,0.25) 30%,
+rgba(255,255,255,0.12) 55%,
+rgba(255,255,255,0.05) 70%,
+transparent 85%
+);
+
+filter:blur(160px);
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+z-index:-1;
+
+}
+
+
+
+/* loader */
+
+#loader{
+
+position:absolute;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+font-size:14px;
+
+}
+
+
+
+/* responsive */
+
+@media(max-width:900px){
+
+.product-container{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+.product-viewer{
+
+height:420px;
+padding:60px;
+
+}
+
+.product-info h1{
+
+font-size:42px;
+
+}
+
+}
