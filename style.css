@@ -11,10 +11,10 @@ overflow:hidden;
 }
 
 body{
-margin:0;
-background:rgb(255, 255, 255);
+background:#000;
 font-family:sans-serif;
-color:rgb(255, 255, 255);
+color:#fff;
+
 position:fixed;
 top:0;
 left:0;
@@ -22,154 +22,107 @@ right:0;
 bottom:0;
 }
 
+/* TEXTO */
+
 p{
 margin-top:20px;
 line-height:1.5;
-
-color:rgba(0,0,0,0.8);
+color:rgba(255,255,255,0.85);
 }
 
+/* FULL SCREEN */
 
 .product-section{
 width:100vw;
-height:100dvh; /* 🔥 mejor que 100vh en mobile */
+height:100dvh;
 
 display:flex;
 justify-content:center;
 align-items:center;
+
+padding:clamp(20px,4vw,60px);
 }
 
-.product-container{
+/* GRID RESPONSIVE PRO */
 
+.product-container{
 width:100%;
-max-width:1200px;
+max-width:1400px;
+height:100%;
 
 display:grid;
 grid-template-columns:1fr 1fr;
-
 align-items:center;
 
-gap:0px;
+gap:clamp(20px,4vw,80px);
+}
 
+/* TEXTO RESPONSIVE */
+
+.product-info{
+z-index:2;
 }
 
 .product-info h1{
-
-font-size:64px;
-margin-bottom:0px;
-
+font-size:clamp(36px,6vw,72px);
+line-height:1.1;
 }
 
 .product-info p{
-
-font-size:18px;
-color:#ffffff;
-
+font-size:clamp(14px,1.5vw,20px);
 }
 
-
-/* viewer */
+/* VIEWER FULL ADAPTATIVO */
 
 .product-viewer{
-
 width:100%;
-height:500px;
-
-padding:0px;
-
+height:100%;
 position:relative;
-
-box-sizing:border-box;
-
 }
+
+/* canvas SIEMPRE full */
 
 #webgl{
 width:100%;
 height:100%;
 display:block;
-background:transparent;
 }
 
-
-/* GLOW INTENSO Y MÁS GRANDE */
+/* GLOW */
 
 .product-viewer::after{
-
 content:"";
-
 position:absolute;
 
-width:700px;
-height:700px;
+width:60vw;
+height:60vw;
 
 background:radial-gradient(
 circle,
-rgba(255,255,255,0.45) 0%,
-rgba(255,255,255,0.25) 30%,
-rgba(255,255,255,0.12) 55%,
-rgba(255,255,255,0.05) 70%,
-transparent 85%
+rgba(255,255,255,0.35) 0%,
+rgba(255,255,255,0.15) 40%,
+transparent 70%
 );
 
-filter:blur(160px);
+filter:blur(120px);
 
 top:50%;
 left:50%;
-
 transform:translate(-50%,-50%);
-
 z-index:-1;
-
 }
 
-
-
-/* loader */
+/* LOADER */
 
 #loader{
-
 position:absolute;
-
 top:50%;
 left:50%;
-
 transform:translate(-50%,-50%);
-
 font-size:14px;
-
 }
 
-
-
-/* responsive */
-
-@media(max-width:900px){
-
-.product-container{
-
-grid-template-columns:1fr;
-
-text-align:center;
-
-}
-
-.product-viewer{
-
-height:420px;
-padding:60px;
-
-}
-
-.product-info h1{
-
-font-size:42px;
-
-}
-
-}
-
-
-/* VIDEO BACKGROUND */
+/* 🔥 VIDEO BACKGROUND */
 
 #bg-video{
 position:fixed;
@@ -181,8 +134,48 @@ height:100dvh;
 
 object-fit:cover;
 
-z-index:-1; /* atrás de todo */
-pointer-events:none; /* no bloquea clicks */
+z-index:-2;
+pointer-events:none;
 
 filter:brightness(0.6);
+}
+
+/* 📱 MOBILE (vertical PRO) */
+
+@media(max-width:900px){
+
+.product-container{
+grid-template-columns:1fr;
+text-align:center;
+height:100%;
+}
+
+.product-info{
+order:1;
+}
+
+.product-viewer{
+order:2;
+height:50%;
+}
+
+/* canvas más chico en mobile */
+#webgl{
+height:100%;
+}
+
+}
+
+/* 📱 EXTRA SMALL (celus chicos) */
+
+@media(max-width:500px){
+
+.product-viewer{
+height:45%;
+}
+
+.product-info h1{
+font-size:32px;
+}
+
 }
