@@ -66,12 +66,14 @@ z-index:2;
 .product-info h1{
 font-size:clamp(36px,6vw,72px);
 line-height:1.1;
-font-family: 'Anton', sans-serif;
-letter-spacing:2px;
+font-family: 'Luckiest Guy', cursive;
+letter-spacing:1px;
 }
 
 .product-info p{
 font-size:clamp(14px,1.5vw,20px);
+font-family: 'Anton', sans-serif;
+letter-spacing:2px;
 }
 
 /* VIEWER FULL ADAPTATIVO */
@@ -178,8 +180,8 @@ height:100%;
 
 .product-info h1{
 font-size:32px;
-font-family: 'Anton', sans-serif;
-letter-spacing:2px;
+font-family: 'Luckiest Guy', cursive;
+letter-spacing:1px;
 }
 
 }
