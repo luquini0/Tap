@@ -11,8 +11,8 @@ overflow:hidden;
 }
 
 body{
-background:#000;
-font-family:sans-serif;
+background:#0c0a08;
+font-family:'Poppins', sans-serif;
 color:#fff;
 
 position:fixed;
@@ -22,12 +22,49 @@ right:0;
 bottom:0;
 }
 
+/* BRAND MARK */
+
+.brand-mark{
+position:fixed;
+top:24px;
+left:clamp(20px,4vw,60px);
+z-index:3;
+
+font-family:'Anton', sans-serif;
+font-size:18px;
+letter-spacing:2px;
+color:#fff;
+}
+
+.brand-mark span{
+color:#e0a24a;
+font-family:'Poppins', sans-serif;
+font-weight:500;
+font-size:12px;
+letter-spacing:1.5px;
+}
+
+/* BADGE */
+
+.badge{
+display:inline-block;
+background:#e0a24a;
+color:#1a1208;
+font-weight:600;
+font-size:12px;
+letter-spacing:1.5px;
+text-transform:uppercase;
+padding:6px 14px;
+border-radius:999px;
+margin-bottom:18px;
+}
+
 /* TEXTO */
 
 p{
-margin-top:20px;
-line-height:1.5;
-color:rgba(255,255,255,0.85);
+margin-top:16px;
+line-height:1.65;
+color:rgba(255,255,255,0.75);
 }
 
 /* FULL SCREEN */
@@ -65,15 +102,38 @@ z-index:2;
 
 .product-info h1{
 font-size:clamp(36px,6vw,72px);
-line-height:1.1;
-font-family: 'Luckiest Guy', cursive;
+line-height:1.05;
+font-family:'Anton', sans-serif;
+font-weight:400;
 letter-spacing:1px;
+text-transform:uppercase;
+}
+
+.product-info h1 span{
+display:block;
+color:#e0a24a;
 }
 
 .product-info p{
-font-size:clamp(14px,1.5vw,20px);
-font-family: 'Anton', sans-serif;
-letter-spacing:2px;
+font-size:clamp(14px,1.4vw,17px);
+font-family:'Poppins', sans-serif;
+font-weight:400;
+letter-spacing:0.2px;
+max-width:46ch;
+}
+
+.location{
+margin-top:26px;
+padding-top:18px;
+border-top:1px solid rgba(255,255,255,0.15);
+
+font-size:13px;
+letter-spacing:0.4px;
+color:rgba(255,255,255,0.6);
+}
+
+.location .pin{
+margin-right:4px;
 }
 
 /* VIEWER FULL ADAPTATIVO */
@@ -103,8 +163,8 @@ height:60vw;
 
 background:radial-gradient(
 circle,
-rgba(255,255,255,0.35) 0%,
-rgba(255,255,255,0.15) 40%,
+rgba(224,162,74,0.30) 0%,
+rgba(224,162,74,0.12) 40%,
 transparent 70%
 );
 
@@ -123,10 +183,24 @@ position:absolute;
 top:50%;
 left:50%;
 transform:translate(-50%,-50%);
-font-size:14px;
+font-size:13px;
+letter-spacing:1px;
+color:rgba(255,255,255,0.7);
 }
 
-/* 🔥 VIDEO BACKGROUND */
+#loader .dots span{
+animation:blink 1.4s infinite;
+opacity:0;
+}
+#loader .dots span:nth-child(2){animation-delay:0.2s;}
+#loader .dots span:nth-child(3){animation-delay:0.4s;}
+
+@keyframes blink{
+0%,80%,100%{opacity:0;}
+40%{opacity:1;}
+}
+
+/* VIDEO BACKGROUND */
 
 #bg-video{
 position:fixed;
@@ -138,13 +212,22 @@ height:100dvh;
 
 object-fit:cover;
 
+z-index:-3;
+pointer-events:none;
+
+filter:brightness(0.55) saturate(1.05);
+}
+
+.video-overlay{
+position:fixed;
+inset:0;
 z-index:-2;
 pointer-events:none;
 
-filter:brightness(0.6);
+background:linear-gradient(180deg, rgba(12,10,8,0.35) 0%, rgba(12,10,8,0.55) 60%, rgba(12,10,8,0.85) 100%);
 }
 
-/* 📱 MOBILE (vertical PRO) */
+/* MOBILE (vertical PRO) */
 
 @media(max-width:900px){
 
@@ -156,6 +239,16 @@ height:100%;
 
 .product-info{
 order:1;
+}
+
+.product-info p{
+margin-left:auto;
+margin-right:auto;
+}
+
+.location{
+border-top:none;
+padding-top:0;
 }
 
 .product-viewer{
@@ -170,9 +263,13 @@ height:100%;
 
 }
 
-/* 📱 EXTRA SMALL (celus chicos) */
+/* EXTRA SMALL (celus chicos) */
 
 @media(max-width:500px){
+
+.brand-mark{
+font-size:15px;
+}
 
 .product-viewer{
 height:100%;
@@ -180,7 +277,6 @@ height:100%;
 
 .product-info h1{
 font-size:32px;
-font-family: 'Luckiest Guy', cursive;
 letter-spacing:1px;
 }
 
